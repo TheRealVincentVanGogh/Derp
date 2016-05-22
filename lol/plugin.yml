@@ -1,0 +1,7 @@
+name: A Plugin
+main: lol.Omg
+version: 1.0
+commands:
+   test:
+      description: Testing if this plugin works
+      usage: /test
