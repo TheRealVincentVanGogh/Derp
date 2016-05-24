@@ -4,8 +4,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import uwotm8.JoinListener;
+import lol.JoinListener;
  
 public class Omg extends JavaPlugin {
  
