@@ -1,4 +1,4 @@
 name: SatanAI
-main: satan.plugin.yml
+main: satan.Control
 version: 1.0
 commands:
