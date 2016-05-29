@@ -1,4 +1,3 @@
-
 import java.util.HashMap;
 
 import org.bukkit.Location;
