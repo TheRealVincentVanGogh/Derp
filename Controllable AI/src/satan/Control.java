@@ -45,7 +45,6 @@ public final class Control extends JavaPlugin implements Listener {
 	}
 	
 	private void spawnZombie(Player owner, Location spawnLocation) {
-		this.cleanZombie(owner);
 		Zombie zombie = spawnLocation.getWorld().spawn(spawnLocation, Zombie.class);
 		@SuppressWarnings("deprecation")
 		ControllableMob<Zombie> controlledZombie = ControllableMobs.assign(zombie, true);
@@ -63,7 +62,7 @@ public final class Control extends JavaPlugin implements Listener {
 				} else {
 					event.getPlayer().getItemInHand().setAmount(amount-1);
 				}				
-				this.spawnZombie(event.getPlayer(), event.getClickedBlock().getLocation().add(0, 1, 0));
+				this.spawnZombie(event.getPlayer(), event.getClickedBlock().getLocation().add(0, 50, 0));
 			}
 		}
 	}
