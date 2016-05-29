@@ -1,5 +1,6 @@
-import java.util.HashMap;
+package satan;
 
+import java.util.HashMap;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
