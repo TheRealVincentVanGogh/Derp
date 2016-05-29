@@ -1,5 +1,6 @@
 import java.util.HashMap;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -49,12 +50,13 @@ public final class Control extends JavaPlugin implements Listener {
 		@SuppressWarnings("deprecation")
 		ControllableMob<Zombie> controlledZombie = ControllableMobs.assign(zombie, true);
 		this.zombieMap.put(owner, controlledZombie);
+		owner.sendMessage(ChatColor.RED + "Allahu akbar incoming!");
 	}
 	
 	@EventHandler
 	public void onBlockRightClick(PlayerInteractEvent event) {
 		if(event.getAction()==Action.RIGHT_CLICK_BLOCK) {
-			if(event.getPlayer().getItemInHand().getType()==Material.ROTTEN_FLESH) {
+			if(event.getPlayer().getItemInHand().getType()==Material.POISONOUS_POTATO) {
 				int amount = event.getPlayer().getItemInHand().getAmount();
 				if(amount==1) {
 					event.getPlayer().getInventory().removeItem(event.getPlayer().getInventory().getItemInHand());
