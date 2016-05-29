@@ -12,7 +12,6 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
-
 import de.ntcomputer.minecraft.controllablemobs.api.ControllableMob;
 import de.ntcomputer.minecraft.controllablemobs.api.ControllableMobs;
 
@@ -59,7 +58,7 @@ public final class Control extends JavaPlugin implements Listener {
 		if(event.getAction()==Action.RIGHT_CLICK_BLOCK) {
 			if(event.getPlayer().getItemInHand().getType()==Material.POISONOUS_POTATO) {
 				int amount = event.getPlayer().getItemInHand().getAmount();
-				if(amount==1) {
+				if(amount > 0) {
 					event.getPlayer().getInventory().removeItem(event.getPlayer().getInventory().getItemInHand());
 				} else {
 					event.getPlayer().getItemInHand().setAmount(amount-1);
