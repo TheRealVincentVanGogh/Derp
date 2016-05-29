@@ -57,7 +57,7 @@ public final class Control extends JavaPlugin implements Listener {
 		if(event.getAction()==Action.RIGHT_CLICK_BLOCK) {
 			if(event.getPlayer().getItemInHand().getType()==Material.POISONOUS_POTATO) {
 				int amount = event.getPlayer().getItemInHand().getAmount();
-				if(amount > 0) {
+				if(amount==1) {
 					event.getPlayer().getInventory().removeItem(event.getPlayer().getInventory().getItemInHand());
 				} else {
 					event.getPlayer().getItemInHand().setAmount(amount-1);
