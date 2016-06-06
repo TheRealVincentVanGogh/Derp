@@ -11,6 +11,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.plugin.java.JavaPlugin;
 import de.ntcomputer.minecraft.controllablemobs.api.ControllableMob;
 import de.ntcomputer.minecraft.controllablemobs.api.ControllableMobs;
@@ -52,19 +53,25 @@ public final class Control extends JavaPlugin implements Listener {
 		owner.sendMessage(ChatColor.RED + "Allahu akbar incoming!");
 	}
 	
+	
 	@EventHandler
 	public void onBlockRightClick(PlayerInteractEvent event) {
 		if(event.getAction()==Action.RIGHT_CLICK_BLOCK) {
-			if(event.getPlayer().getItemInHand().getType()==Material.POISONOUS_POTATO) {
-				int amount = event.getPlayer().getItemInHand().getAmount();
+			Player player = event.getPlayer();
+			if(player.getInventory().getItemInMainHand().getType()==Material.POISONOUS_POTATO) {
+				int amount = player.getInventory().getItemInMainHand().getAmount();
 				if(amount==1) {
-					event.getPlayer().getInventory().removeItem(event.getPlayer().getInventory().getItemInHand());
+					event.getPlayer().getInventory().removeItem(event.getPlayer().getInventory().getItemInMainHand());
 				} else {
-					event.getPlayer().getItemInHand().setAmount(amount-1);
+					player.getInventory().getItemInMainHand().setAmount(amount-1);
 				}				
 				this.spawnZombie(event.getPlayer(), event.getClickedBlock().getLocation().add(0, 50, 0));
 			}
 		}
+	}
+	
+	public interface PlayerInventory extends Inventory {
+		
 	}
 
 }
